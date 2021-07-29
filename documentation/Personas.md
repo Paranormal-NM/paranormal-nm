@@ -1,0 +1,16 @@
+(Scott)
+
+Name: Jack Sampson	
+Age: 73
+Profession: Retired railroad Brakeman/Conductor. Lives with his wife in the same home where they raised their kids. He fills his time with family gatherings, game nights with friends, and railroad modeling. 
+
+Technology: Jack mainly uses a consumer-grade desktop computer as he doesn’t travel much outside his home. He is computer savvy and has an Android smartphone, both on the same company data plan.
+
+Attitudes and Behaviors: Jack was raised an atheist, although he’s always had questions about the meaning of life and the nature of the universe. Atheism never made total sense to him, so he considers himself more an agnostic. As he ages, his mortality becomes prominent in his thoughts, especially after a recent health scare. 
+
+Frustrations and Needs: Having lived a full and rewarding life, Jack doesn’t have many frustrations or needs at this point. Among the minor annoyances are his somewhat diminished motor control that prevents him from doing the detailed work his model railroad demands from him. Not knowing what happens when we die is another source of frustration for him.  He was never exposed any belief system that addressed it.
+
+Goals: Jack visits ParanormalNM.com as a source of information that he’s been lacking his whole life: Where do we go when we die?
+
+User Story: As a user, Jack is simply looking for validation that the spirit lives on after death. He’s looking for stories of Near-Death Experiences, and hopes that his fear of death will be assuaged by others’ encounters.
+
