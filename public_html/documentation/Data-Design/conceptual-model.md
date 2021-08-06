@@ -6,24 +6,21 @@
 - profileEmail
 - profileActivationToken
 - profileHash
-- profileAddressZip
-- createTime (timeStamp)
-
+- profileTime (timeStamp)
 
 ##Story
 - PK: storyID
 - FK: storyProfileID
 - FK: storyCategoryID
-- FK: storyRatingId
 - storyTitle
 - storyBody
-- storyAddressZip
-
+- storyCity
+- storyState
+- storyTime (timeStamp)
 
 ##Category
 - PK: categoryId
 - categoryName
-
 
 ##Comment
 - PK: commentId
@@ -31,11 +28,12 @@
 - FK: commentStoryId
 - commentTitle
 - commentBody
+- commentTime (timeStamp)
 
 ##Rating (weak entity)
 - FK: storyRatingProfileId
 - FK: storyRatingStoryId
-- storyRating
+- ratingValue
 
 
 # Relationships
