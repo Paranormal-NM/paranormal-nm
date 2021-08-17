@@ -1,5 +1,6 @@
 import React from "react"
 import {Form, Button} from "react-bootstrap"
+
 export function Login(){
     return (
         <>
@@ -10,7 +11,7 @@ export function Login(){
             <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Control type="email" placeholder="Enter email" border />
                     {/*<Form.Text className="text-muted">*/}
                     {/*    Please enter your email to log in.*/}
                     {/*</Form.Text>*/}

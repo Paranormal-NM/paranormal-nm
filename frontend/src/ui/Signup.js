@@ -1,10 +1,11 @@
 import React from "react"
 import {Form, InputGroup,FormControl} from "react-bootstrap"
 
-export function signUp(){
+export function Signup(){
     return(
         <>
-
+            <h1>Welcome to Paranormal-NM!</h1>
+            <h3>Want to sign up? <br/>Just enter your information below.</h3>
             <InputGroup className="mb-3">
                 <FormControl>
                     placeholder="Firstname"
