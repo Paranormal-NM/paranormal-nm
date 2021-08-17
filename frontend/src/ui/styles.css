@@ -1,3 +1,9 @@
 body {
-    background: black url("./paranormal-bg.png") no-repeat center top;
+    background: black url("../ui/images/paranormal-bg.png") no-repeat center top;
+    background-size: cover;
+}
+
+Nav {
+    font-family: Impact, fantasy;
+    font-color: white;
 }
