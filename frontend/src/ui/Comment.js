@@ -6,8 +6,14 @@ export function Comment() {
     return (
         <>
             <div className="m-2">
-                <label htmlFor="Comment">Comment</label>
-                <input type="text" className="form-control" id="comment" name="comment" placeholder="comment">
+                <span>
+                    <a href="">Commenters Name</a>
+                </span>
+               <div>
+                   <span>
+                   {/*    Comment Text*/}
+                   </span>
+               </div>
             </div>
         </>
     )
