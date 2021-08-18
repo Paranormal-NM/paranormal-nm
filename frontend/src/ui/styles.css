@@ -3,7 +3,106 @@ body {
     background-size: cover;
 }
 
-Nav {
+.barGhost, .barPlaces, .barNear, .barPara {
     font-family: Impact, fantasy;
-    font-color: white;
+    font-weight: normal;
+    font-size: 19px;
+    line-height: 90%;
+    display: inline-block;
+    padding-top:7px;
+    padding-bottom:5px;
+    padding-left:5px;
+    color: black !important;
 }
+
+.barGhost {
+    background-color: yellowgreen !important;
+    width:100%;
+}
+
+.barPlaces {
+    color: cornflowerblue !important;
+    width:100%;
+}
+
+.barNear {
+    color: orange !important;
+    width:100%;
+}
+
+.barPara {
+    color: darkturquoise !important;
+    width:100%;
+}
+
+.sortWhite {
+    font-family: Helvetica, sans-serif;
+    font-size: 13px;
+    color:white;
+}
+
+
+.navGhost, .navPlaces, .navNear, .navPara {
+    font-family: Impact, fantasy;
+    font-weight: normal;
+    font-size: 23px;
+    line-height: 90%;
+    color: white !important;
+}
+
+.navGhost:hover {
+    color: yellowgreen !important;
+}
+
+.navPlaces:hover {
+    color: cornflowerblue !important;
+}
+
+.navNear:hover {
+    color: orange !important;
+}
+
+.navPara:hover {
+    color: darkturquoise !important;
+}
+
+.login {
+    font-family: Verdana, sans-serif;
+    font-weight: bolder;
+    font-size: 15px;
+    text-decoration: none;
+    line-height: 90%;
+    color: white !important;
+}
+
+.login:hover {
+    color: yellow !important;
+}
+
+.logoBar {
+    margin-top:12px;
+    margin-right:12px;
+}
+
+.buttonStory {
+    font-family: Verdana, sans-serif;
+    font-weight: bolder;
+    background-color: dodgerblue;
+    color: white;
+    padding: 3px 17px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 17px;
+    border-radius: 24px;
+    margin-top:18px;
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+    margin-right:27px;
+}
+
+.buttonStory:hover {
+    background-color: deepskyblue;
+}
+
