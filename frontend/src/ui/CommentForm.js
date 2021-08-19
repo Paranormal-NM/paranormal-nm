@@ -6,8 +6,7 @@ export function CommentForm() {
     return (
         <>
             <div className="m-2">
-                <label htmlFor="Comment">Comment</label>
-                <input type="text" className="form-control" id="comment" name="comment" placeholder="comment">
+                <input type="text" className="form-control" id="comment" name="comment" placeholder="Type comment here"></input>
             </div>
         </>
 )

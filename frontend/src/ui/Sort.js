@@ -8,6 +8,7 @@ export function Sort() {
             <Container>
                 <ListGroup>
                     <ListGroup.Item className="m-2">
+                        <span className="m-2">Sort</span>
                         <ButtonGroup aria-label="Basic example">
                             <Button variant="secondary">Date</Button>
                             <Button variant="secondary">Rating</Button>
