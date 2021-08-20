@@ -1,7 +1,7 @@
 import React from "react"
 import {Sort} from "./Sort"
 import {CommentWrapper} from "./CommentWrapper"
-import {Col, Container, Row, Card, Form, ListGroup, Button, ButtonGroup} from "react-bootstrap";
+import {Col, Container, Row, Card, Form, ListGroup, Button, ButtonGroup, Accordion} from "react-bootstrap";
 
 
 export function Profile() {
@@ -9,7 +9,7 @@ export function Profile() {
         <>
 <Container>
             <Row>
-                <Col>
+                <Col xs lg="4">
                     <ListGroup className="m-2">
                         <ListGroup.Item><Button variant="secondary" size="lg">
                             Create New Story
@@ -20,7 +20,19 @@ export function Profile() {
                         <ListGroup.Item><a href="">Hounted Toilet</a> by robert t bob</ListGroup.Item>
                     </ListGroup>
                 </Col>
-                <Col>
+                <Col xs lg="8">
+                    <Accordion className="m-2" >
+                        <Accordion.Item eventKey="0">
+                            <Accordion.Header>Update Email</Accordion.Header>
+                            <Accordion.Body>
+                            </Accordion.Body>
+                        </Accordion.Item>
+                        <Accordion.Item eventKey="1">
+                            <Accordion.Header>Update Password</Accordion.Header>
+                            <Accordion.Body>
+                            </Accordion.Body>
+                        </Accordion.Item>
+                    </Accordion>
                     <Form>
                         <Form.Group className="m-2" controlId="exampleForm.ControlTextarea1">
 
@@ -35,7 +47,6 @@ export function Profile() {
                     </Form>
                     <CommentWrapper/>
                 </Col>
-
            </Row>
 </Container>
         </>
