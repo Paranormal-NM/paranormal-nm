@@ -1,15 +1,10 @@
 import React from "react"
-import {Col, Container, Row, Card, ListGroup } from "react-bootstrap";
-import {Sort} from "./Sort";
-import {StoryList} from "./shared/components/StoryList";
 
-
-
-export function Home() {
+export const Home = () => {
     return (
         <>
-            <Sort/>
-            <StoryList/>
+            <h1>Haunted Places</h1>
         </>
     )
 }
+
