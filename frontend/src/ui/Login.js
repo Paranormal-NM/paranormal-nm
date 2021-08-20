@@ -75,8 +75,6 @@ export function Login(){
                       </Button>
                   </Form>
               </Card>
-
-
           </Card>
       </CardGroup>
   </Container>
