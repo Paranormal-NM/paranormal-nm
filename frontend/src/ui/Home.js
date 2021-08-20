@@ -1,9 +1,20 @@
 import React from "react"
+import {Col, Container, Row, Card, ListGroup } from "react-bootstrap";
 
-export const Home = () => {
+
+
+export function Home() {
     return (
         <>
-            <h1>Home</h1>
+            <Container>
+                <ListGroup>
+                    <ListGroup.Item className="m-2"><a href="">Hounted Toilet</a> by robert t bob</ListGroup.Item>
+                    <ListGroup.Item className="m-2"><a href="">Hounted Toilet</a> by robert t bob</ListGroup.Item>
+                    <ListGroup.Item className="m-2"><a href="">Hounted Toilet</a> by robert t bob</ListGroup.Item>
+                    <ListGroup.Item className="m-2"><a href="">Hounted Toilet</a> by robert t bob</ListGroup.Item>
+                    <ListGroup.Item className="m-2"><a href="">Hounted Toilet</a> by robert t bobs</ListGroup.Item>
+                </ListGroup>
+            </Container>
         </>
     )
 }
