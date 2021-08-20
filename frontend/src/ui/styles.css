@@ -106,3 +106,18 @@ body {
     background-color: deepskyblue;
 }
 
+.ListGroup {
+    margin-bottom:1px;
+}
+
+.storyTitle {
+    font-size: 23px;
+    font-weight: bold;
+    color: maroon;
+    margin-right:27px;
+}
+
+.details {
+    font-size: 15px;
+    color: dimgrey;
+}
