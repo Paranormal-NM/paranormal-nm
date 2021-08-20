@@ -14,7 +14,7 @@ export const App = () => (
             <LogoBar/>
             <Switch>
                 <Route exact path='/' component={Home} />
-                <Route exact path='/storylist' component={StoryList} />
+                <Route exact path='/story-list' component={StoryList} />
                 <Route exact path='/profile' component={Profile} />
                 <Route component={FourOhFour} />
             </Switch>

@@ -8,15 +8,6 @@ export const StoryList = () => {
     return (
         <>
 
-
-            <Container size={"lg"}>
-                <div className="barGhost">
-                    <span>GHOST STORIES</span> &nbsp; <span className="sortWhite">sort by: DATE | RATING</span>
-                </div>
-            </Container>
-
-
-
             <Container d-flex size={"lg"} itemID={"contentBody"}>
                 <ListGroup>
                     <ListGroup.Item action variant="light" href="#link1"><span className={"storyTitle"}>Haunted Basement</span>
