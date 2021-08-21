@@ -7,38 +7,27 @@ import ghost from "../../images/ghostIcon.png"
 export const LogoBar = () => {
     return (
         <>
-            <Container fluid="lg">
+            <Container>
                 <Row className="logoBar">
-                    <Col lg={5}>
+                    <Col md={5}>
                         <Image fluid="lg" src={logo}/>
                     </Col>
-                    <Col lg={7}>
-                         <row justifyContent={'flex-end'}>
-
+                    <Col md={7}>
                             <button type="button" class="buttonStory">SUBMIT YOUR STORY!</button>
-
                             <a class="login" href={"#"}>Log In / Sign Up</a>
-
-                        </row>
-
                     </Col>
                 </Row>
                 <Row>
-                    <Navbar>
+                    <Navbar expand='md'>
                         <Container>
                             <Navbar.Toggle aria-controls="navbarScroll" />
                             <Navbar.Collapse id="navbarScroll">
-
-
-
-
                                 <Nav className="ms-auto">
                                     <Nav.Link className="navGhost" href="#ghosts">GHOST STORIES</Nav.Link>
                                     <Nav.Link className="navPlaces" href="#places">HAUNTED PLACES</Nav.Link>
                                     <Nav.Link className="navNear" href="#near-death">NEAR DEATH EXPERIENCES</Nav.Link>
                                     <Nav.Link className="navPara" href="#paranormal">PARANORMAL EVENTS</Nav.Link>
                                 </Nav>
-
                                 <Form className="d-flex" size="sm">
                                     <FormControl size="sm"
                                         type="search"
@@ -51,9 +40,7 @@ export const LogoBar = () => {
                             </Navbar.Collapse>
                         </Container>
                     </Navbar>
-
                 </Row>
-
            </Container>
 
         </>

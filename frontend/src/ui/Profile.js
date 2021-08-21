@@ -1,5 +1,6 @@
 import React from "react"
 import {Sort} from "./Sort"
+import {StoryList} from './shared/components/StoryList'
 import {CommentWrapper} from "./CommentWrapper"
 import {Col, Container, Row, Card, Form, ListGroup, Button, ButtonGroup, Accordion} from "react-bootstrap";
 
@@ -10,15 +11,8 @@ export function Profile() {
 <Container>
             <Row>
                 <Col xs lg="4">
-                    <ListGroup className="m-2">
-                        <ListGroup.Item><Button variant="secondary" size="lg">
-                            Create New Story
-                        </Button></ListGroup.Item>
-                        <ListGroup.Item><a href="">Hounted Toilet</a> by robert t bob</ListGroup.Item>
-                        <ListGroup.Item><a href="">Hounted Toilet</a> by robert t bob</ListGroup.Item>
-                        <ListGroup.Item><a href="">Hounted Toilet</a> by robert t bob</ListGroup.Item>
-                        <ListGroup.Item><a href="">Hounted Toilet</a> by robert t bob</ListGroup.Item>
-                    </ListGroup>
+                    <Sort/>
+                   <StoryList/>
                 </Col>
                 <Col xs lg="8">
                     <Accordion className="m-2" >
