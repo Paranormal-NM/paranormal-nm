@@ -18,7 +18,7 @@ CREATE TABLE profile (
                          profileCreateTime TIMESTAMP,
                          profileUsername VARCHAR(32) NOT NULL UNIQUE,
                          primary key(profileId),
-                         index(profileEmail),
+                         index(profileEmail)
 );
 
 CREATE TABLE story (
@@ -28,11 +28,11 @@ CREATE TABLE story (
                        storyTitle VARCHAR(45) NOT NULL,
                        storyLocationCity VARCHAR(45) NOT NULL,
                        storyLocationState CHAR(2) NOT NULL,
-                       storyProfileId BINARY(16), NOT NULL,
+                       storyProfileId BINARY(16) NOT NULL,
                        storyRating TINYINT,
                        primary key(storyId),
-                       foreign key(profileId) REFERENCES profile(profileId),
-                       index(storyBody,storyTitle),
+                       foreign key(storyProfileId) REFERENCES profile(profileId),
+                       index(storyBody,storyTitle)
 );
 
 CREATE TABLE comment (
@@ -42,21 +42,21 @@ CREATE TABLE comment (
                          commentProfileId BINARY(16) NOT NULL,
                          commentStoryId BINARY(16) NOT NULL,
                          primary key(commentId),
-                         foreign key(profileId) REFERENCES profile(profileId),
-                         foreign key(storyId) REFERENCES story(storyId),
-                         index(commentBody, commentTitle),
+                         foreign key(commentProfileId) REFERENCES profile(profileId),
+                         foreign key(commentStoryId) REFERENCES story(storyId),
+                         index(commentBody, commentTitle)
 );
 
 CREATE TABLE category (
                           categoryId BINARY(16) NOT NULL,
                           categoryName VARCHAR(32) NOT NULL,
-                          primary key(categoryId),
+                          primary key(categoryId)
 );
 
 CREATE TABLE rating (
                         storyRating TINYINT,
                         ratingProfileId BINARY(16),
                         ratingStoryId BINARY(16),
-                        foreign key(profileId) REFERENCES profile(profileId),
-                        foreign key(storyId) REFERENCES story(storyId),
+                        foreign key(ratingProfileId) REFERENCES profile(profileId),
+                        foreign key(ratingStoryId) REFERENCES story(storyId)
 );
