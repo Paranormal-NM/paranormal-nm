@@ -18,6 +18,7 @@
 */.env.development.local
 */.env.test.local
 */paranormal.env
+project.env
 
 
 */npm-debug.log*
