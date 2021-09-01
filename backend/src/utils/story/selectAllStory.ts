@@ -1,3 +1,6 @@
+// Duncan Colhoun
+// Cohort 34
+
 import {Story} from "../interfaces/Story";
 import {connect} from "../database.utils";
 import {RowDataPacket} from "mysql2";
