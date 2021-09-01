@@ -1,3 +1,4 @@
+USE 'paranormal';
 DROP TABLE IF EXISTS rating;
 DROP TABLE IF EXISTS category;
 DROP TABLE IF EXISTS comment;

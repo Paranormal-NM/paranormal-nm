@@ -1,3 +1,7 @@
+// Duncan Colhoun
+// Cohort 34
+
+
 export interface Story {
     storyId: number,
     storyProfileId: number,
