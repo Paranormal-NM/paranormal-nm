@@ -33,6 +33,7 @@ CREATE TABLE comment (
                          commentStoryId BINARY(16) NOT NULL,
                          commentBody VARCHAR(3000) NOT NULL,
                          commentTitle VARCHAR(45) NOT NULL,
+                         commentDate DATETIME NOT NULL,
                          primary key(commentId),
                          foreign key(commentProfileId) REFERENCES profile(profileId),
                          foreign key(commentStoryId) REFERENCES story(storyId),
