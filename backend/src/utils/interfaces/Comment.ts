@@ -1,5 +1,5 @@
 export interface Comment {
-    commentId: string,
+    commentId: string | null,
     commentProfileId: string,
     commentStoryId: string,
     commentBody: string,
