@@ -10,7 +10,7 @@ export async function updateStory(story: Story) : Promise<string> {
         const mySqlConnection = await connect()
 //Might want to delete storyId and storyProfileId from input to prevent changes to these //permanently assigned values
 
-        const mySqlQuery = "UPDATE story(storyId, storyProfileId, storyBody, storyCategoryId, storyLocationCity, storyLocationState, storyRating, storyTitle) VALUES :storyId, :storyProfileId, :storyBody, :storyCategoryId, :storyLocationCity, :storyLocationState, :storyRating, :storyTitle)";
+        const mySqlQuery = 'UPDATE story SET storyBody = :storyBody, storyCategoryId = :storyCategoryId, storyLocationCity = :storyLocationCity, storyLocationState =:storyLocationState, storyRating=:storyRating, storyTitle = :storyTitle WHERE storyId = :storyId';
 
         const [result]= await mySqlConnection.execute(mySqlQuery, story) as [ResultSetHeader, RowDataPacket]
         return "Story updated successfully"
