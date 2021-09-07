@@ -1,20 +1,20 @@
 import {Schema} from 'express-validator';
 
-export const tweetValidator : Schema = {
-    tweetProfileId: {
+export const commentValidator : Schema = {
+    commentProfileId: {
         isUUID: {
-            errorMessage: 'please provide a valid TweetProfileId'
+            errorMessage: 'please provide a valid commentProfileId'
         }
     },
-    tweetContent: {
+    commentBody: {
         isLength: {
-            errorMessage: 'a tweet cannot be longer than 140 characters',
+            errorMessage: 'a comment cannot be longer than 140 characters',
             options: { max: 140 }
         },
         trim: true,
         escape: true
     },
-    tweetDate: {
+    commentTitle: {
         toDate: true
     }
 };
