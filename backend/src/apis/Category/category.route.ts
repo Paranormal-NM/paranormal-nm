@@ -1,29 +1,21 @@
 import { Router } from 'express';
 import {
-    getAllTweetsController,
-    getTweetByTweetIdController,
-    getTweetsByTweetProfileIdController,
-    postTweet
-} from './tweet.controller';
+    getCategoryByCategoryIdController
+} from './category.controller';
 import { asyncValidatorController } from '../../utils/controllers/asyncValidator.controller';
-import { tweetValidator } from './tweet.validator';
+import { tweetValidator } from './category.validator';
 import {isLoggedIn} from "../../utils/controllers/isLoggedIn.controller";
 import {check} from 'express-validator';
 import {checkSchema} from 'express-validator';
 
 const router = Router();
-router.route("/:tweetId").get(  asyncValidatorController([
+router.route("/:categoryId").get(  asyncValidatorController([
     check("tweetId", "please provide a valid tweetId").isUUID()
-]), getTweetByTweetIdController)
+]), getCategoryByCategoryIdController)
 
-
-router.route("/tweetProfileId/:tweetProfileId").get(  asyncValidatorController([
-    check("tweetProfileId", "please provide a valid tweetProfileId").isUUID()
-]), getTweetsByTweetProfileIdController)
 
 // Every new route is instantiated below. It will include the controller name and the type of action (get, post, delete, put, patch)
 router.route('/')
-    .get( getAllTweetsController)
-    .post(isLoggedIn, asyncValidatorController(checkSchema(tweetValidator)), postTweet);
+    .get( getCategoryByCategoryIdController)
 
 export default router;
