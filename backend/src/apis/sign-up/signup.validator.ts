@@ -23,8 +23,8 @@ export const signupValidator: Schema= {
 
   profilePassword: {
     isLength: {
-      errorMessage: 'Password must be at least eight characters',
-      options: { min: 8 }
+      errorMessage: 'Password must be between 8 and 32 characters',
+      options: { min: 8, max: 32 }
     },
     trim: true,
     escape: true
@@ -33,13 +33,13 @@ export const signupValidator: Schema= {
   profilePasswordConfirm: {
     isLength: {
       errorMessage: 'Confirm password must be at least eight characters',
-      options: { min: 8 }
+      options: { min: 8, max: 32 }
     },
     trim: true,
     escape: true
   },
 
-    profileLocationCity: {
+    profileAddressCity: {
         isLength: {
             errorMessage: 'City name cannot exceed 45 characters.',
             options: {min: 2, max: 45}
@@ -48,7 +48,7 @@ export const signupValidator: Schema= {
         escape: true
     },
 
-    profileLocationState: {
+    profileAddressState: {
         isLength: {
             errorMessage: 'State name cannot exceed 2 characters.',
             options: {max: 2}

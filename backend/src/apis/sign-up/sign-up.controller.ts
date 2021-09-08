@@ -74,6 +74,7 @@ export async function signupProfileController(request: Request, response: Respon
 
     const status: Status = {
       status: 500,
+      // @ts-ignore
       message: error.message,
       data: null
     };
