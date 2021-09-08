@@ -3,8 +3,8 @@
 
 
 export interface Story {
-    storyId: number,
-    storyProfileId: number,
+    storyId: string | null,
+    storyProfileId: string | null,
     storyBody: string,
     storyCategoryId: number,
     storyLocationCity: string,
