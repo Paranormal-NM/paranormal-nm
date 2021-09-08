@@ -22,7 +22,6 @@ CREATE TABLE story (
                        storyCategoryId BINARY(16) NOT NULL,
                        storyLocationCity VARCHAR(45) NOT NULL,
                        storyLocationState CHAR(2) NOT NULL,
-                       storyRating TINYINT,
                        storyTitle VARCHAR(45) NOT NULL,
                        primary key(storyId),
                        foreign key(storyProfileId) REFERENCES profile(profileId),

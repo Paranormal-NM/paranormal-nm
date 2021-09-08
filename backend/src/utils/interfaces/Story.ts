@@ -9,6 +9,5 @@ export interface Story {
     storyCategoryId: number,
     storyLocationCity: string,
     storyLocationState: string,
-    storyRating: number,
     storyTitle: string
 }

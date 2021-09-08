@@ -5,14 +5,15 @@ import {Story} from '../../utils/interfaces/Story';
 import {Status} from '../../utils/interfaces/Status';
 import {Profile} from "../../utils/interfaces/Profile";
 import {insertStory} from "../../utils/story/insertStory"
-import {selectAllStory} from "../../utils/story/selectAllStory";
-import {selectOneStory} from "../../utils/story/selectOneStory";
+import {selectAllStories} from "../../utils/story/selectAllStories";
+import {selectStoryByStoryId} from "../../utils/story/selectStoryByStoryId";
 import {deleteStory} from '../../utils/story/deleteStory';
+import {selectStoriesByCategoryId} from "../../utils/story/selectStoriesByCategoryId";
 
-export async function getAllStoryController(request: Request, response: Response): Promise<Response<Status>> {
+export async function getAllStoriesController(request: Request, response: Response): Promise<Response<Status>> {
 
     try {
-        const data = await selectAllTweets()
+        const data = await selectAllStories()
         // return the response
         const status: Status = {status: 200, message: null, data};
         return response.json(status);
@@ -25,10 +26,10 @@ export async function getAllStoryController(request: Request, response: Response
     }
 }
 
-export async function getTweetsByTweetProfileIdController(request : Request, response: Response, nextFunction: NextFunction): Promise<Response<Status>>{
+export async function getStoriesByCategoryIdController(request : Request, response: Response, nextFunction: NextFunction): Promise<Response<Status>>{
     try {
-        const     {tweetProfileId} = request.params
-        const data  = await selectTweetsByTweetProfileId(tweetProfileId)
+        const     {categoryId} = request.params
+        const data  = await selectStoriesByCategoryId(categoryId)
         return response.json({status:200, message: null, data});
     } catch(error) {
         return response.json({
@@ -39,10 +40,10 @@ export async function getTweetsByTweetProfileIdController(request : Request, res
     }
 }
 
-export async function getTweetByTweetIdController(request : Request, response: Response, nextFunction: NextFunction) : Promise<Response<Status>>{
+export async function getStoryByStoryIdController(request : Request, response: Response, nextFunction: NextFunction) : Promise<Response<Status>>{
     try {
-        const     {tweetId} = request.params
-        const data  = await selectTweetByTweetId(tweetId)
+        const     {storyId} = request.params
+        const data  = await selectStoryByStoryId(storyId)
         return response.json({status:200, message: null, data});
     } catch(error) {
         return response.json({
@@ -53,20 +54,20 @@ export async function getTweetByTweetIdController(request : Request, response: R
     }
 }
 
-export async function postTweet(request: Request, response: Response) : Promise<Response<Status>> {
+export async function postStory(request: Request, response: Response) : Promise<Response<Status>> {
     try {
 
         const {tweetContent} = request.body;
         const profile : Profile = request.session.profile as Profile
         const tweetProfileId : string = <string>profile.profileId
 
-        const tweet: Tweet = {
-            tweetId: null,
-            tweetProfileId,
+        const story: Story = {
+            storyId: null,
+            storyProfileId,
             tweetContent,
             tweetDate: null
         }
-        const result = await insertTweet(tweet)
+        const result = await insertStory(story)
         const status: Status = {
             status: 200,
             message: result,
