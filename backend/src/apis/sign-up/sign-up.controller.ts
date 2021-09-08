@@ -15,14 +15,14 @@ export async function signupProfileController(request: Request, response: Respon
   try {
 
 
-    const {profileAtHandle, profileEmail, profilePhone, profilePassword} = request.body;
+    const {profileUsername, profileEmail, profileAddressCity, profileAddressState, profileCreateTime, profilePassword} = request.body;
     const profileHash = await setHash(profilePassword);
     const profileActivationToken = setActivationToken();
     const basePath = `${request.protocol}://${request.get('host')}${request.originalUrl}activation/${profileActivationToken}`
     console.log(profileActivationToken)
 
-    const message = `<h2>Welcome to DDCTwitter.</h2>
-<p>In order to start posting tweets of cats you must confirm your account </p>
+    const message = `<h2>Welcome to Paranormal NM.</h2>
+<p>In order to start posting or commenting, you must confirm your account.</p>
 <p><a href="${basePath}">${basePath}</a></p>
 `
 
@@ -38,6 +38,9 @@ export async function signupProfileController(request: Request, response: Respon
       profileId: null,
       profileActivationToken,
       profileUsername,
+      profileAddressCity,
+      profileAddressState,
+      profileCreateTime,
       profileEmail,
       profileHash,
     };
@@ -57,7 +60,7 @@ export async function signupProfileController(request: Request, response: Respon
 
       const status: Status = {
         status: 200,
-        message: "Profile successfully created please check your email.",
+        message: "Profile successfully created, please check your email.",
         data: null
       };
       mg.messages().sendMime(compiledEmail, (sendError: any, body: any) => {
