@@ -15,7 +15,7 @@ export async function signupProfileController(request: Request, response: Respon
   try {
 
 
-    const {profileAtHandle, profileEmail, profilePhone, profilePassword} = request.body;
+    const {profileUsername, profileEmail, profilePassword} = request.body;
     const profileHash = await setHash(profilePassword);
     const profileActivationToken = setActivationToken();
     const basePath = `${request.protocol}://${request.get('host')}${request.originalUrl}activation/${profileActivationToken}`
