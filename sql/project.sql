@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS story;
 DROP TABLE IF EXISTS profile;
 CREATE TABLE profile (
 profileId BINARY(16) NOT NULL,
-profileActivationToken CHAR(32) NOT NULL,
+profileActivationToken CHAR(32),
 profileAddressCity VARCHAR(45) NOT NULL,
 profileAddressState CHAR(2) NOT NULL,
 profileCreateTime TIMESTAMP,
