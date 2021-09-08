@@ -15,17 +15,16 @@ profileUsername VARCHAR(32) NOT NULL UNIQUE,
 primary key(profileId)
 );
 CREATE TABLE story (
-storyId BINARY(16) NOT NULL,
-storyProfileId BINARY(16) NOT NULL,
-storyBody BLOB NOT NULL,
-storyCategoryId BINARY(16) NOT NULL,
-storyLocationCity VARCHAR(45) NOT NULL,
-storyLocationState CHAR(2) NOT NULL,
-storyRating TINYINT,
-storyTitle VARCHAR(45) NOT NULL,
-primary key(storyId),
-foreign key(storyProfileId) REFERENCES profile(profileId),
-index(storyProfileId)
+                       storyId BINARY(16) NOT NULL,
+                       storyProfileId BINARY(16) NOT NULL,
+                       storyBody BLOB NOT NULL,
+                       storyCategoryId BINARY(16) NOT NULL,
+                       storyLocationCity VARCHAR(45) NOT NULL,
+                       storyLocationState CHAR(2) NOT NULL,
+                       storyTitle VARCHAR(45) NOT NULL,
+                       primary key(storyId),
+                       foreign key(storyProfileId) REFERENCES profile(profileId),
+                       index(storyProfileId)
 );
 CREATE TABLE comment (
 commentId BINARY (16) NOT NULL,
@@ -44,6 +43,20 @@ categoryId BINARY(16) NOT NULL,
 categoryName VARCHAR(32) NOT NULL,
 primary key(categoryId)
 );
+
+INSERT INTO category (categoryId, categoryName)
+VALUES ((UUID_TO_BIN(UUID())), 'Ghost Stories');
+
+INSERT INTO category (categoryId, categoryName)
+VALUES ((UUID_TO_BIN(UUID())), 'Haunted Places');
+
+INSERT INTO category (categoryId, categoryName)
+VALUES ((UUID_TO_BIN(UUID())), 'Near Death Experiences');
+
+INSERT INTO category (categoryId, categoryName)
+VALUES ((UUID_TO_BIN(UUID())), 'Paranormal EVents');
+
+
 CREATE TABLE rating (
 rating TINYINT,
 ratingProfileId BINARY(16),

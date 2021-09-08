@@ -46,12 +46,7 @@ export const storyValidator : Schema = {
         escape: true
     },
 
-    // storyRating: {
-    //     isInt: {
-    //         errorMessage: 'Must be 1 to 5.',
-    //         options: {min: 1, max: 5}
-    //     }
-    // }, //Not used in original deployment
+
 
     storyTitle: {
         isLength: {
