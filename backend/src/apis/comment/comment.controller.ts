@@ -7,7 +7,8 @@ import {Profile} from "../../utils/interfaces/Profile";
 import {insertComment} from "../../utils/comment/insertComment"
 import {selectAllComments} from "../../utils/comment/selectAllComments";
 import {selectCommentByCommentId} from '../../utils/comment/selectCommentByCommentId';
-import {deleteComment} from '../../utils/comment/deleteComment'
+import { deleteComment } from '../../utils/comment/deleteComment';
+
 
 export async function getAllCommentsController(request: Request, response: Response): Promise<Response<Status>> {
 
