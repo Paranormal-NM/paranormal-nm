@@ -2,7 +2,7 @@ import express, { Application } from 'express'
 import morgan from 'morgan'
 
 // Routes
-import { storyRoute} from './apis/story/story.route'
+import storyRoute from './apis/story/story.route'
 import { indexRoute } from './apis/index.routes'
 import { signupRoute } from "./apis/sign-up/signup.route";
 import { signinRoute } from "./apis/sign-in/sign-in.route";
