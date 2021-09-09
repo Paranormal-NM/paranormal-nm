@@ -17,7 +17,7 @@ primary key(profileId)
 CREATE TABLE story (
                        storyId BINARY(16) NOT NULL,
                        storyProfileId BINARY(16) NOT NULL,
-                       storyBody BLOB NOT NULL,
+                       storyBody TEXT NOT NULL,
                        storyCategoryId BINARY(16) NOT NULL,
                        storyLocationCity VARCHAR(45) NOT NULL,
                        storyLocationState CHAR(2) NOT NULL,

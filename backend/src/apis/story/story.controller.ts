@@ -75,6 +75,8 @@ export async function postStoryController(request: Request, response: Response) 
 
 
         }
+        console.log(story);
+
         const result = await insertStory(story)
         const status: Status = {
             status: 200,
