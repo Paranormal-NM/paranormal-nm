@@ -24,7 +24,7 @@ export const storyValidator : Schema = {
 
     storyCategoryId: {
         isUUID: {
-            errorMessage: 'Provide a valid Category Profile ID.'
+            errorMessage: 'Provide a valid category Profile ID.'
         }
     },
 

@@ -4,11 +4,11 @@ import {Request, Response, NextFunction} from 'express';
 import {Comment} from '../../utils/interfaces/Comment';
 import {Status} from '../../utils/interfaces/Status';
 import {Profile} from "../../utils/interfaces/Profile";
-import {insertComment} from "../../utils/Comment/insertComment"
-import {selectAllComments} from "../../utils/Comment/selectAllComments";
-import {selectCommentsByCommentProfileId} from "../../utils/Comment/selectCommentByCommentProfileId";
-import {selectCommentByCommentId} from '../../utils/Comment/selectCommentByCommentId';
-import {deleteComment} from '../../utils/Comment/deleteComment'
+import {insertComment} from "../../utils/comment/insertComment"
+import {selectAllComments} from "../../utils/comment/selectAllComments";
+import {selectCommentsByCommentProfileId} from "../../utils/comment/selectCommentByCommentProfileId";
+import {selectCommentByCommentId} from '../../utils/comment/selectCommentByCommentId';
+import {deleteComment} from '../../utils/comment/deleteComment'
 
 export async function getAllCommentsController(request: Request, response: Response): Promise<Response<Status>> {
 

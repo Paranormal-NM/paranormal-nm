@@ -3,7 +3,7 @@ import {Request, Response, NextFunction} from 'express';
 // Interfaces (represent the DB model and types of the columns associated with a specific DB table)
 import {Category} from '../../utils/interfaces/Category';
 import {Status} from '../../utils/interfaces/Status';
-import {selectCategoryByCategoryId} from '../../utils/Category/selectCategoryByCategoryId';
+import {selectCategoryByCategoryId} from '../../utils/category/selectCategoryByCategoryId';
 
 
 export async function getCategoryByCategoryIdController(request : Request, response: Response, nextFunction: NextFunction) : Promise<Response<Status>>{
