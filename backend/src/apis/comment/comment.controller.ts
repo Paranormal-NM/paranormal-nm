@@ -6,7 +6,11 @@ import {Status} from '../../utils/interfaces/Status';
 import {Profile} from "../../utils/interfaces/Profile";
 import {insertComment} from "../../utils/comment/insertComment"
 import {selectAllComments} from "../../utils/comment/selectAllComments";
+<<<<<<< HEAD:backend/src/apis/Comment/comment.controller.ts
 import {selectCommentsByCommentProfileId} from "../../utils/comment/selectCommentByCommentProfileId";
+=======
+import {selectCommentsByCommentProfileId} from "../../utils/Comment/selectCommentByCommentProfileId";
+>>>>>>> 0f1916b015b5ed9e3e281d68814a6a110106d62b:backend/src/apis/comment/comment.controller.ts
 import {selectCommentByCommentId} from '../../utils/comment/selectCommentByCommentId';
 import {deleteComment} from '../../utils/comment/deleteComment'
 
