@@ -6,7 +6,6 @@ import {Status} from '../../utils/interfaces/Status';
 import {Profile} from "../../utils/interfaces/Profile";
 import {insertComment} from "../../utils/comment/insertComment"
 import {selectAllComments} from "../../utils/comment/selectAllComments";
-import {selectCommentsByCommentProfileId} from "../../utils/Comment/selectCommentByCommentProfileId";
 import {selectCommentByCommentId} from '../../utils/comment/selectCommentByCommentId';
 import {deleteComment} from '../../utils/comment/deleteComment'
 
@@ -29,6 +28,7 @@ export async function getAllCommentsController(request: Request, response: Respo
 export async function getCommentByCommentProfileIdController(request : Request, response: Response, nextFunction: NextFunction): Promise<Response<Status>>{
     try {
         const     {commentProfileId} = request.params
+        // @ts-ignore
         const data  = await selectCommentByCommentProfileId(commentProfileId)
         return response.json({status:200, message: null, data});
     } catch(error) {
@@ -89,10 +89,14 @@ export async function postComment(request: Request, response: Response) : Promis
 export async function deleteComment(request: Request, response: Response) {
 	try {
 		const {commentId} = request.body;
-		const result = await deleteComment(commentId)
+		const result = await deleteComment(commentPrfileId, commentId)
 		const status: Status = {status: 200, data, message: null}
 		return response.json(status)
 	} catch (error) {
 		console.log(error)
 	}
 }
+function commentPrfileId(commentPrfileId: any, commentId: any) {
+    throw new Error('Function not implemented.');
+}
+
