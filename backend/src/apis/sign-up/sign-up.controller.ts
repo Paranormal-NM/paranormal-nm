@@ -18,7 +18,7 @@ export async function signupProfileController(request: Request, response: Respon
     const {profileUsername, profileEmail, profileAddressCity, profileAddressState, profileCreateTime, profilePassword} = request.body;
     const profileHash = await setHash(profilePassword);
     const profileActivationToken = setActivationToken();
-    const basePath = `${request.protocol}://${request.get('host')}${request.originalUrl}activation/${profileActivationToken}`
+    const basePath = `${request.protocol}://${request.get('host')}${request.originalUrl}/activation/${profileActivationToken}`
     console.log(profileActivationToken)
 
     const message = `<h2>Welcome to Paranormal NM.</h2>
@@ -29,7 +29,7 @@ export async function signupProfileController(request: Request, response: Respon
     const mailgunMessage = {
       from: `Mailgun Sandbox <postmaster@${process.env.MAILGUN_DOMAIN}>`,
       to: profileEmail,
-      subject: "One step closer to Sticky Head -- Account Activation",
+      subject: "One step closer -- Account Activation",
       text: 'Test email text',
       html: message
     }
@@ -74,6 +74,7 @@ export async function signupProfileController(request: Request, response: Respon
 
     const status: Status = {
       status: 500,
+      // @ts-ignore
       message: error.message,
       data: null
     };
