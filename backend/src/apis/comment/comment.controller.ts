@@ -57,7 +57,8 @@ export async function getCommentByCommentIdController(request : Request, respons
 export async function postComment(request: Request, response: Response) : Promise<Response<Status>> {
     try {
 
-        const {commentBody} = request.body;
+        const {commentBody, commentTitle, commentStoryId} = request.body;
+        // @ts-ignore
         const profile : Profile = request.session.profile as Profile
         const commentProfileId : string = <string>profile.profileId
 
@@ -65,7 +66,8 @@ export async function postComment(request: Request, response: Response) : Promis
             commentId: null,
             commentProfileId,
             commentBody,
-            commentTitle
+            commentTitle,
+            commentStoryId
         }
         const result = await insertComment(comment)
         const status: Status = {
@@ -86,17 +88,19 @@ export async function postComment(request: Request, response: Response) : Promis
 
 
 
-export async function deleteComment(request: Request, response: Response) {
+export async function deleteCommentController(request: Request, response: Response) {
 	try {
-		const {commentId} = request.body;
-		const result = await deleteComment(commentPrfileId, commentId)
-		const status: Status = {status: 200, data, message: null}
+		const {commentId} = request.params;
+        // @ts-ignore
+        const profile : Profile = request.session.profile as Profile
+        const commentProfileId : string = <string>profile.profileId
+		const result = await deleteComment(commentProfileId, commentId)
+		// @ts-ignore
+        const status: Status = {status: 200, data, message: null}
 		return response.json(status)
 	} catch (error) {
 		console.log(error)
 	}
 }
-function commentPrfileId(commentPrfileId: any, commentId: any) {
-    throw new Error('Function not implemented.');
-}
+
 
