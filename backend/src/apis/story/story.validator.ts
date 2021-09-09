@@ -1,11 +1,6 @@
 import {Schema} from 'express-validator';
 
 export const storyValidator : Schema = {
-    storyId: {
-        isUUID: {
-            errorMessage: 'Provide a valid Story ID.'
-        }
-    },
 
     storyProfileId: {
         isUUID: {

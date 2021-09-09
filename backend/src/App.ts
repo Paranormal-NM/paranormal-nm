@@ -4,8 +4,10 @@ import morgan from 'morgan'
 // Routes
 import storyRoute from './apis/story/story.route'
 import { indexRoute } from './apis/index.routes'
-import { signupRoute } from "./apis/sign-up/signup.route";
-import { signinRoute } from "./apis/sign-in/sign-in.route";
+import { signupRoute } from './apis/sign-up/signup.route';
+import { signinRoute } from './apis/sign-in/sign-in.route';
+import categoryRoute  from './apis/category/category.route';
+import commentRoute from './apis/comment/comment.route'
 import passport from "passport";
 import {passportStrategy} from "./apis/sign-in/sign-in.controller";
 const session = require("express-session");
@@ -55,6 +57,8 @@ export class App {
         this.app.use('/apis/sign-up/', signupRoute)
         this.app.use('/apis/sign-in/', signinRoute)
         this.app.use('/apis/story/', storyRoute)
+        this.app.use('/apis/category/', categoryRoute)
+        this.app.use('apis/comment', commentRoute)
     }
 
     // starts the server and tells the terminal to post a message that the server is running and on what port

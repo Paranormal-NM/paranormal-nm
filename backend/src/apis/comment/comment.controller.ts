@@ -6,11 +6,6 @@ import {Status} from '../../utils/interfaces/Status';
 import {Profile} from "../../utils/interfaces/Profile";
 import {insertComment} from "../../utils/comment/insertComment"
 import {selectAllComments} from "../../utils/comment/selectAllComments";
-<<<<<<< HEAD:backend/src/apis/Comment/comment.controller.ts
-import {selectCommentsByCommentProfileId} from "../../utils/comment/selectCommentByCommentProfileId";
-=======
-import {selectCommentsByCommentProfileId} from "../../utils/Comment/selectCommentByCommentProfileId";
->>>>>>> 0f1916b015b5ed9e3e281d68814a6a110106d62b:backend/src/apis/comment/comment.controller.ts
 import {selectCommentByCommentId} from '../../utils/comment/selectCommentByCommentId';
 import {deleteComment} from '../../utils/comment/deleteComment'
 
@@ -33,7 +28,8 @@ export async function getAllCommentsController(request: Request, response: Respo
 export async function getCommentByCommentProfileIdController(request : Request, response: Response, nextFunction: NextFunction): Promise<Response<Status>>{
     try {
         const     {commentProfileId} = request.params
-        const data  = await selectCommentsByCommentProfileId(commentProfileId)
+        // @ts-ignore
+        const data  = await selectCommentByCommentProfileId(commentProfileId)
         return response.json({status:200, message: null, data});
     } catch(error) {
         return response.json({
@@ -61,7 +57,8 @@ export async function getCommentByCommentIdController(request : Request, respons
 export async function postComment(request: Request, response: Response) : Promise<Response<Status>> {
     try {
 
-        const {commentBody} = request.body;
+        const {commentBody, commentTitle, commentStoryId} = request.body;
+        // @ts-ignore
         const profile : Profile = request.session.profile as Profile
         const commentProfileId : string = <string>profile.profileId
 
@@ -69,7 +66,8 @@ export async function postComment(request: Request, response: Response) : Promis
             commentId: null,
             commentProfileId,
             commentBody,
-            commentTitle
+            commentTitle,
+            commentStoryId
         }
         const result = await insertComment(comment)
         const status: Status = {
@@ -90,13 +88,19 @@ export async function postComment(request: Request, response: Response) : Promis
 
 
 
-export async function deleteComment(request: Request, response: Response) {
+export async function deleteCommentController(request: Request, response: Response) {
 	try {
-		const {commentId} = request.body;
-		const result = await deleteComment(commentId)
-		const status: Status = {status: 200, data, message: null}
+		const {commentId} = request.params;
+        // @ts-ignore
+        const profile : Profile = request.session.profile as Profile
+        const commentProfileId : string = <string>profile.profileId
+		const result = await deleteComment(commentProfileId, commentId)
+		// @ts-ignore
+        const status: Status = {status: 200, data, message: null}
 		return response.json(status)
 	} catch (error) {
 		console.log(error)
 	}
 }
+
+

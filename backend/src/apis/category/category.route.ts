@@ -1,21 +1,22 @@
 import { Router } from 'express';
 import {
+    getAllCategoriesController,
     getCategoryByCategoryIdController
 } from './category.controller';
 import { asyncValidatorController } from '../../utils/controllers/asyncValidator.controller';
-import { tweetValidator } from './category.validator';
+import { categoryValidator } from './category.validator';
 import {isLoggedIn} from "../../utils/controllers/isLoggedIn.controller";
 import {check} from 'express-validator';
 import {checkSchema} from 'express-validator';
 
-const router = Router();
-router.route("/:categoryId").get(  asyncValidatorController([
-    check("tweetId", "please provide a valid tweetId").isUUID()
+const categoryRoute = Router();
+categoryRoute.route("/:categoryId").get(  asyncValidatorController([
+    check("categoryId", "please provide a valid categoryId").isUUID()
 ]), getCategoryByCategoryIdController)
 
 
 // Every new route is instantiated below. It will include the controller name and the type of action (get, post, delete, put, patch)
-router.route('/')
-    .get( getCategoryByCategoryIdController)
+categoryRoute.route('/')
+    .get( getAllCategoriesController)
 
-export default router;
+export default categoryRoute;

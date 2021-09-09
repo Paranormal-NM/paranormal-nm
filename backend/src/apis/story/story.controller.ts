@@ -60,6 +60,7 @@ export async function postStoryController(request: Request, response: Response) 
     try {
 
         const {storyBody, storyCategoryId, storyLocationCity, storyLocationState, storyTitle } = request.body;
+        // @ts-ignore
         const profile : Profile = request.session.profile as Profile
         const storyProfileId : string = <string>profile.profileId
 
@@ -74,6 +75,8 @@ export async function postStoryController(request: Request, response: Response) 
 
 
         }
+        console.log(story);
+
         const result = await insertStory(story)
         const status: Status = {
             status: 200,
@@ -109,6 +112,7 @@ export async function putStoryController(request: Request, response: Response) :
     try {
 
         const {storyBody, storyCategoryId, storyLocationCity, storyLocationState, storyTitle } = request.body;
+        // @ts-ignore
         const profile : Profile = request.session.profile as Profile
         const storyProfileId : string = <string>profile.profileId
 

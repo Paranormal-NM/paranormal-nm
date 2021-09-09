@@ -10,6 +10,7 @@ export async function putProfileController(request: Request, response: Response)
         const {profileId} = request.params
         const {profileEmail, profileUsername} = request.body
     //  const profilePhone = request.body.profilePhone ?? null;
+        // @ts-ignore
         const profile = <Profile>request.session.profile
         const profileIdFromSession = <string>profile.profileId
 
@@ -25,7 +26,7 @@ export async function putProfileController(request: Request, response: Response)
         }
 
         return profileId === profileIdFromSession
-            ? preformUpdate({profileId, profileUsername, profileEmail, profileAddressCity, profileAddressState})
+            ? preformUpdate({profileId, profileUsername, profileEmail,})
             : updateFailed("you are not allowed to preform this action")
     } catch (error) {
         return response.json( {status:400, data: null, message: error.message})
