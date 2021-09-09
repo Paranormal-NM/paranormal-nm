@@ -7,7 +7,7 @@ export async function updateProfile(comment: Comment): Promise<string>  {
         const mysqlConnection = await connect();
         const query : string = 'UPDATE comment SET commentBody = :commentBody, commentTitle = :commentTitle, WHERE commentId = UUID_TO_BIN(:commentId)';
         await mysqlConnection.execute(query, comment)
-        return 'Comment successfully updated'
+        return 'comment successfully updated'
     } catch (error) {
         throw error
     }
