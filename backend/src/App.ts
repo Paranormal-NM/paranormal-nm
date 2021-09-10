@@ -7,9 +7,10 @@ import { indexRoute } from './apis/index.routes'
 import { signupRoute } from './apis/sign-up/signup.route';
 import { signinRoute } from './apis/sign-in/sign-in.route';
 import categoryRoute  from './apis/category/category.route';
-import commentRoute from './apis/comment/comment.route'
+import commentRoute from './apis/comment/comment.route';
 import passport from "passport";
 import {passportStrategy} from "./apis/sign-in/sign-in.controller";
+import {profileRoute} from "./apis/profile/profileRoute";
 const session = require("express-session");
 const MemoryStore = require('memorystore')(session);
 // The following class creates the app and instantiates the server
@@ -59,6 +60,7 @@ export class App {
         this.app.use('/apis/story/', storyRoute)
         this.app.use('/apis/category/', categoryRoute)
         this.app.use('/apis/comment/', commentRoute)
+        this.app.use('/apis/profile/', profileRoute)
     }
 
     // starts the server and tells the terminal to post a message that the server is running and on what port

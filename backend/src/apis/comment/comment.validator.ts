@@ -16,7 +16,7 @@ export const commentValidator : Schema = {
     },
     commentTitle: {
         isLength: {
-            errorMessage: 'Comment title connot be longer than 45 characters.',
+            errorMessage: 'comment title connot be longer than 45 characters.',
             options: { max: 45 }
         },
         trim: true,

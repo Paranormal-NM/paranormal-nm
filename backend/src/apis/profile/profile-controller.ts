@@ -29,6 +29,8 @@ export async function putProfileController(request: Request, response: Response)
             ? preformUpdate({profileId, profileUsername, profileEmail,})
             : updateFailed("you are not allowed to preform this action")
     } catch (error) {
+
+        // @ts-ignore
         return response.json( {status:400, data: null, message: error.message})
     }
 }
@@ -43,6 +45,8 @@ export async function getProfileByProfileId(request: Request, response: Response
         return response.json(status)
 
     } catch (error) {
+
+        // @ts-ignore
         return(response.json({status: 400, data: null, message: error.message}))
 
     }
