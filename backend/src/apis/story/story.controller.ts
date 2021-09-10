@@ -111,13 +111,13 @@ export async function deleteStoryController(request: Request, response: Response
 export async function putStoryController(request: Request, response: Response) : Promise<Response<Status>> {
     try {
 
-        const {storyBody, storyCategoryId, storyLocationCity, storyLocationState, storyTitle } = request.body;
+        const {storyId, storyBody, storyCategoryId, storyLocationCity, storyLocationState, storyTitle } = request.body;
         // @ts-ignore
         const profile : Profile = request.session.profile as Profile
         const storyProfileId : string = <string>profile.profileId
 
         const story: Story = {
-            storyId: null,
+            storyId,
             storyProfileId,
             storyBody,
             storyCategoryId,
@@ -136,6 +136,7 @@ export async function putStoryController(request: Request, response: Response) :
         return response.json(status);
 
     } catch(error) {
+        console.error(error)
         return  response.json({
             status: 500,
             message: "Error updating story try again later.",

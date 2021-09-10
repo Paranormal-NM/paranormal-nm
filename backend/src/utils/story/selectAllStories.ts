@@ -8,7 +8,7 @@ import {RowDataPacket} from "mysql2";
 export async function selectAllStories() : Promise<Story[]> {
     try {
         const mySqlConnection = await connect()
-        const mySqlQuery = 'SELECT BIN_TO_UUID(storyId) AS storyId, BIN_TO_UUID (storyProfileId) AS storyProfileId, storyBody, storyCategoryId, storyLocationCity, storyLocationState, storyTitle FROM story'
+        const mySqlQuery = 'SELECT BIN_TO_UUID(storyId) AS storyId, BIN_TO_UUID (storyProfileId) AS storyProfileId, storyBody,  BIN_TO_UUID(storyCategoryId) AS storyCategoryId, storyLocationCity, storyLocationState, storyTitle FROM story'
         const result = await mySqlConnection.execute(mySqlQuery) as RowDataPacket []
         return result[0] as Array<Story>
     } catch (error) {

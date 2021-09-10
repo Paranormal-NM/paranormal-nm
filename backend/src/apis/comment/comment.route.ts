@@ -4,7 +4,7 @@ import {
     getCommentByCommentIdController,
     getCommentByCommentProfileIdController,
     postComment,
-    deleteComment
+    deleteCommentController
 } from './comment.controller';
 import { asyncValidatorController } from '../../utils/controllers/asyncValidator.controller';
 import { commentValidator } from './comment.validator';
