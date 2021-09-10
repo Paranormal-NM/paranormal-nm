@@ -1,0 +1,29 @@
+import { createSlice } from "@reduxjs/toolkit";
+import {httpConfig} from "../ui/shared/utils/http-config";
+import _ from "lodash"
+import {fetchProfileByProfileId} from "./profiles";
+
+const slice = createSlice({
+    name: "stories",
+    initialState: [],
+    reducers: {
+        getAllStories: (stories, action) => {
+            return action.payload
+        }
+    }
+})
+
+export const {getAllStories} = slice.actions
+
+export const fetchAllStories = () => async (dispatch) => {
+    const {data} =  await httpConfig.get("/apis/story/");
+    dispatch(getAllStories(data));
+};
+
+export const fetchAllStoriesAndProfiles = () => async (dispatch, getState) => {
+    await dispatch(fetchAllStories())
+    const profileIds = _.uniq(_.map(getState().stories, "storyProfileId"))
+    profileIds.forEach(profileId => dispatch(fetchProfileByProfileId(profileId)))
+}
+
+export default slice.reducer

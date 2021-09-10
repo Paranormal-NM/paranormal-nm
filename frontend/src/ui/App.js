@@ -6,18 +6,20 @@ import {LogoBar} from './shared/components/LogoBar'
 import { FourOhFour } from './FourOhFour'
 import React from 'react'
 import {Login} from "./Login"
+import {Provider} from "react-redux";
 
-export const App = () => (
+export const App = (store) => (
     <>
-        <BrowserRouter>
-            <LogoBar/>
-            <Switch>
-                <Route exact path={'/login'} component={Login} />
-                <Route exact path={'/profile'} component={Profile} />
-                <Route exact path='/' component={Home} />
-                <Route component={FourOhFour} />
-            </Switch>
-        </BrowserRouter>
-
+        <Provider store={store}>
+            <BrowserRouter>
+                <LogoBar/>
+                <Switch>
+                    <Route exact path={'/login'} component={Login} />
+                    <Route exact path={'/profile'} component={Profile} />
+                    <Route exact path='/' component={Home} />
+                    <Route component={FourOhFour} />
+                </Switch>
+            </BrowserRouter>
+        </Provider>
     </>
 )
