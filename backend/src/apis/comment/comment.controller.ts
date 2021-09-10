@@ -7,7 +7,10 @@ import {Profile} from "../../utils/interfaces/Profile";
 import {insertComment} from "../../utils/comment/insertComment"
 import {selectAllComments} from "../../utils/comment/selectAllComments";
 import {selectCommentByCommentId} from '../../utils/comment/selectCommentByCommentId';
-import {deleteComment} from '../../utils/comment/deleteComment'
+import { deleteComment } from '../../utils/comment/deleteComment';
+import  {selectCommentsByCommentProfileId} from '../../utils/comment/selectCommentsByCommentProfileId'
+import { selectCommentsByCommentStoryId } from '../../utils/comment/selectCommentsByCommentStoryId';
+
 
 export async function getAllCommentsController(request: Request, response: Response): Promise<Response<Status>> {
 
@@ -17,6 +20,7 @@ export async function getAllCommentsController(request: Request, response: Respo
         const status: Status = {status: 200, message: null, data};
         return response.json(status);
     } catch(error) {
+        console.error(error)
         return response.json({
             status: 500,
             message: "",
@@ -28,10 +32,25 @@ export async function getAllCommentsController(request: Request, response: Respo
 export async function getCommentByCommentProfileIdController(request : Request, response: Response, nextFunction: NextFunction): Promise<Response<Status>>{
     try {
         const     {commentProfileId} = request.params
-        // @ts-ignore
-        const data  = await selectCommentByCommentProfileId(commentProfileId)
+        const data  = await selectCommentsByCommentProfileId(commentProfileId)
         return response.json({status:200, message: null, data});
     } catch(error) {
+        console.error(error)
+        return response.json({
+            status: 500,
+            message: "",
+            data: []
+        })
+    }
+}
+
+export async function getCommentByCommentStoryIdController(request : Request, response: Response, nextFunction: NextFunction): Promise<Response<Status>>{
+    try {
+        const     {commentStoryId} = request.params
+        const data  = await selectCommentsByCommentStoryId(commentStoryId)
+        return response.json({status:200, message: null, data});
+    } catch(error) {
+        console.error(error)
         return response.json({
             status: 500,
             message: "",
@@ -46,6 +65,7 @@ export async function getCommentByCommentIdController(request : Request, respons
         const data  = await selectCommentByCommentId(commentId)
         return response.json({status:200, message: null, data});
     } catch(error) {
+        console.error(error)
         return response.json({
             status: 500,
             message: "",
@@ -78,6 +98,7 @@ export async function postComment(request: Request, response: Response) : Promis
         return response.json(status);
 
     } catch(error) {
+        console.error(error)
         return  response.json({
             status: 500,
             message: "Error Creating comment try again later.",

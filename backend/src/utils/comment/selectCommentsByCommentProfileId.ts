@@ -1,0 +1,14 @@
+import {Comment} from "../interfaces/Comment";
+import {connect} from "../database.utils";
+import {RowDataPacket} from 'mysql2';
+
+export async function selectCommentsByCommentProfileId(commentProfileId: string) : Promise<Comment[]> {
+    try {
+        const mySqlConnection = await connect();
+        const mySqlQuery = 'SELECT BIN_TO_UUID(commentId) AS commentId, BIN_TO_UUID (commentProfileId) AS commentProfileId, commentBody, commentTitle, commentDate FROM comment WHERE commentProfileId = UUID_TO_BIN(:commentProfileId) ORDER BY commentDate DESC'
+        const result = await <RowDataPacket>mySqlConnection.execute(mySqlQuery, {commentProfileId})
+        return result[0] as Comment[]
+    } catch (error) {
+        throw error
+    }
+}

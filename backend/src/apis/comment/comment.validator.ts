@@ -8,13 +8,19 @@ export const commentValidator : Schema = {
     },
     commentBody: {
         isLength: {
-            errorMessage: 'a comment cannot be longer than 140 characters',
-            options: { max: 140 }
+            errorMessage: 'a comment cannot be longer than 3000 characters',
+            options: { max: 3000 }
         },
         trim: true,
         escape: true
     },
     commentTitle: {
-        toDate: true
+        isLength: {
+            errorMessage: 'Comment title connot be longer than 45 characters.',
+            options: { max: 45 }
+        },
+        trim: true,
+        escape: true
+
     }
 };
