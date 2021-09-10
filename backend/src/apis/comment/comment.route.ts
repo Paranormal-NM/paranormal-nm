@@ -32,9 +32,9 @@ router.route("/commentStoryId/:commentStoryId").get(  asyncValidatorController([
     check("commentStoryId", "please provide a valid commentStoryId").isUUID()
 ]), getCommentByCommentStoryIdController)
 
-router.route("/:commentId").delete( isLoggedIn,  asyncValidatorController([
-    check("commentId", "please provide a valid commentId").isUUID()
-]), deleteCommentController)
+// router.route("/:commentId").delete( isLoggedIn,  asyncValidatorController([
+//     check("commentId", "please provide a valid commentId").isUUID()
+// ]), deleteCommentController)
 
 // Every new route is instantiated below. It will include the controller name and the type of action (get, post, delete, put, patch)
 

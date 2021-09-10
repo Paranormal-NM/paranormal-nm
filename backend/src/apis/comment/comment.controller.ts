@@ -109,19 +109,19 @@ export async function postComment(request: Request, response: Response) : Promis
 
 
 
-export async function deleteCommentController(request: Request, response: Response) {
-	try {
-		const {commentId} = request.params;
-        // @ts-ignore
-        const profile : Profile = request.session.profile as Profile
-        const commentProfileId : string = <string>profile.profileId
-		const result = await deleteComment(commentProfileId, commentId)
-		// @ts-ignore
-        const status: Status = {status: 200, data, message: null}
-		return response.json(status)
-	} catch (error) {
-		console.log(error)
-	}
-}
+// export async function deleteCommentController(request: Request, response: Response) {
+// 	try {
+// 		const {commentId} = request.params;
+//         // @ts-ignore
+//         const profile : Profile = request.session.profile as Profile
+//         const commentProfileId : string = <string>profile.profileId
+// 		const result = await deleteComment(commentId)
+// 		// @ts-ignore
+//         const status: Status = {status: 200, data, message: null}
+// 		return response.json(status)
+// 	} catch (error) {
+// 		console.log(error)
+// 	}
+// }
 
 
