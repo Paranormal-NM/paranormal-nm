@@ -1,8 +1,5 @@
 import React, {useEffect} from "react"
 import {Col, Container, Navbar, Nav, Row, Image, Form, FormControl, Button, ListGroup,} from "react-bootstrap";
-import logo from "../../images/paranormal-nm-logo.png"
-import icon from "../../images/magGlass.png"
-import ghost from "../../images/ghostIcon.png"
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAllStories, fetchAllStoriesAndProfiles} from "../../../store/stories";
 import {StoryListCard} from "../StoryListCard";
