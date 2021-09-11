@@ -4,22 +4,21 @@ import logo from "../../images/paranormal-nm-logo.png"
 import icon from "../../images/magGlass.png"
 import ghost from "../../images/ghostIcon.png"
 import {useDispatch, useSelector} from "react-redux";
-import {fetchAllStories, fetchAllStoriesAndProfiles} from "../../../store/stories";
+import {fetchAllStories, fetchAllStoriesAndProfiles, fetchStoryByStoryId} from "../../../store/stories";
 import {StoryListCard} from "../StoryListCard";
 
 export const StoryList = () => {
     const stories = useSelector(state => state.stories ? state.stories : []);
-    const profiles = useSelector(state => state.profiles ? state.profiles : []);
     const dispatch = useDispatch();
     const effects = () => {
         dispatch(fetchAllStoriesAndProfiles());
+        dispatch(fetchStoryByStoryId())
     };
     const inputs = [];
 
     useEffect(effects, inputs);
 
     console.log(stories)
-    console.log(profiles)
 
     return (
         <>
