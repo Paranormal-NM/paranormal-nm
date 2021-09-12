@@ -41,7 +41,6 @@ body {
     color:white;
 }
 
-
 .navGhost, .navPlaces, .navNear, .navPara {
     font-family: Impact, fantasy;
     font-weight: normal;
@@ -121,3 +120,35 @@ body {
     font-size: 15px;
     color: dimgrey;
 }
+
+.signin-container {
+    background: none;
+    margin:"0";
+    padding:"0";
+    border:"0";
+}
+
+.card-group {
+    background: none;
+    border:"0";
+    margin:"0";
+    padding:"0";
+}
+
+.signup-card {
+    background: none;
+    margin:"0";
+    padding:"0";
+    border:"0";
+}
+
+.card-body {
+    background: rgba(255, 255, 255, 0.40);
+    border:"0";
+    margin:"0";
+    padding:"0";
+}
+
+
+
+
