@@ -17,7 +17,8 @@ export const App = (store) => (
                 <Switch>
                     <Route exact path={'/login'} component={Login} />
                     <Route exact path={'/profile'} component={Profile} />
-                    <Route exact path={'/story/:storyId'} component={Story}/>
+
+                    <Route exact path={'/story/:storyId'} storyId={":storyId"} component={Story}/>
                     <Route exact path='/' component={Home} />
                     <Route component={FourOhFour} />
                 </Switch>

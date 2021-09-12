@@ -9,18 +9,11 @@ const slice = createSlice({
     reducers: {
         getAllStories: (stories, action) => {
             return action.payload
+        },
+        getStoryByStoryId: (story, action) => {
+            return action.payload
         }
     }
-})
-
-const storySlice = createSlice({
-    name: "singleStory",
-    initialState: [],
-    reducers: {
-    getStoryByStoryId: (story, action) => {
-        return action.payload
-    }
-}
 })
 
 
@@ -37,8 +30,8 @@ export const fetchAllStories = () => async (dispatch) => {
 export const fetchStoryByStoryId = (id) => async (dispatch, getState) => {
     const state = getState()
     console.log (state)
-    // const {data} = await httpConfig.get(`/apis/story/${id}`)
-    // dispatch(getStoryByStoryId(data))
+    const {data} = await httpConfig.get(`/apis/story/${id}`)
+    dispatch(getStoryByStoryId(data))
 
 }
 

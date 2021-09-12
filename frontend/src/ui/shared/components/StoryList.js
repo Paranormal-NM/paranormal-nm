@@ -11,9 +11,9 @@ export const StoryList = () => {
         dispatch(fetchAllStoriesAndProfiles());
         dispatch(fetchStoryByStoryId())
     };
-    const inputs = [];
 
-    useEffect(effects, inputs);
+
+    useEffect(effects, [dispatch]);
 
     console.log(stories)
 
