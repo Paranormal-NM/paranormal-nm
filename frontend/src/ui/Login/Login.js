@@ -4,6 +4,7 @@
 
 import React from "react"
 import {Form, Button, Container, CardGroup, Card} from "react-bootstrap"
+import {LoginForm} from "./LoginForm";
 
 export function Login(){
     return (
@@ -17,18 +18,9 @@ export function Login(){
 
             {/*Login form from react-bootstrap at GitHub*/}
 
-                <Form>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Control type="email" placeholder="Email Address" lg />
-                    </Form.Group>
+        <LoginForm/>
 
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Control type="password" placeholder="Password" lg />
-                    </Form.Group>
-                    <Button variant="btn btn-primary" type="submit">
-                        Submit
-                    </Button>
-                </Form>
+
               </Card>
           </Card>
 

@@ -6,7 +6,7 @@ import { Story } from './Story'
 import { LogoBar } from './shared/components/LogoBar'
 import { FourOhFour } from './FourOhFour'
 import React from 'react'
-import { Login } from "./Login"
+import { Login } from "./Login/Login"
 import { Provider } from "react-redux";
 
 export const App = (store) => (
