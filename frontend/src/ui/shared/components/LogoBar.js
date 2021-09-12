@@ -14,7 +14,7 @@ export const LogoBar = () => {
                     </Col>
                     <Col md={7}>
                             <button type="button" class="buttonStory">SUBMIT YOUR STORY!</button>
-                            <a class="login" href={"#"}>Log In / Sign Up</a>
+                        <a class="login" href={"#"}>Log In / Sign Up</a>
                     </Col>
                 </Row>
                 <Row>
