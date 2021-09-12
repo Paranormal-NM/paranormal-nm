@@ -13,8 +13,8 @@ export function Login(){
   <Container className={"signin-container"}>
       <CardGroup satus>
           <Card className={"signup-card"}>
-              <Card className="card-body text-center w-auto">
-             <h3 class={"storyTitle"}>Login</h3>
+              <Card className={"card-body text-center w-auto"}>
+             <h3 className={"storyTitle"}>Login</h3>
 
             {/*Login form from react-bootstrap at GitHub*/}
 
@@ -26,7 +26,7 @@ export function Login(){
 
           <Card className={"signup-card"}>
               <Card className="card-body text-center w-auto">
-                  <h3 class={"storyTitle"}>Sign Up</h3>
+                  <h3 className={"storyTitle"}>Sign Up</h3>
 
                   {/*Login form from react-bootstrap at GitHub*/}
 
