@@ -2,7 +2,7 @@ import {NextFunction, Request, Response} from 'express';
 import "express-session";
 import passport from 'passport';
 import passportLocal, {Strategy} from 'passport-local';
-import {v4 as uuidv4} from 'uuid';
+import {v4 as uuid} from 'uuid';
 import {generateJwt, validatePassword} from "../../utils/auth.utils";
 import {Profile} from "../../utils/interfaces/Profile";
 import {selectProfileByProfileEmail} from "../../utils/profile/selectProfileByProfileEmail";
@@ -20,7 +20,7 @@ export async function signInController(request: Request, response: Response, nex
       async (err: any, passportUser: Profile) => {
         console.log(passportUser)
         const {profileId, profileUsername, profileEmail} = passportUser;
-        const signature: string = uuidv4()
+        const signature: string = uuid()
         const authorization: string = generateJwt({profileId, profileUsername, profileEmail}, signature);
 
         const signInFailed = (message: string) => response.json({
