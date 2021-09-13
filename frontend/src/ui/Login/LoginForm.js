@@ -3,6 +3,8 @@ import {Form, Button, Container, CardGroup, Card} from "react-bootstrap"
 import * as Yup from "yup"
 import {httpConfig} from "../shared/utils/http-config";
 import {Formik} from "formik"
+import {LoginFormContent} from "./LoginFormContent";
+
 export function LoginForm() {
 const initialValues = {
     profileEmail: "" ,
@@ -14,12 +16,15 @@ const validator = Yup.object().shape({
 })
 
     const handleSubmit = (values, {setStatus, resetForm}) => {
-    httpConfig.post("/apis/sign-up/", values)
+    httpConfig.post("/apis/sign-in/", values)
         .then(reply => {
             let {message, type} = reply
             if (reply.status === 200) {
                 console.log("success!")
             }
+
+                console.log(reply)
+
         })
     }
 
@@ -32,17 +37,6 @@ const validator = Yup.object().shape({
     </>)
 
 }
-export function LoginFormContent(){
-    return (               <Form>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Control type="email" placeholder="Email Address" lg />
-        </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Control type="password" placeholder="Password" lg />
-        </Form.Group>
-        <Button variant="btn btn-primary" type="submit">
-            Submit
-        </Button>
-    </Form>)
-}
+
+
