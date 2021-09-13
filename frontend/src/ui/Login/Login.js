@@ -5,6 +5,7 @@
 import React from "react"
 import {Form, Button, Container, CardGroup, Card} from "react-bootstrap"
 import {LoginForm} from "./LoginForm";
+import {SignupForm} from "../SignUp/SignupForm";
 
 export function Login(){
     return (
@@ -29,31 +30,7 @@ export function Login(){
                   <h3 className={"storyTitle"}>Sign Up</h3>
 
                   {/*Login form from react-bootstrap at GitHub*/}
-
-                  <Form>
-                      <Form.Group className="mb-3" controlId="formText">
-                          <Form.Control type="username" placeholder="Username (may be real name or a handle)" sm />
-                      </Form.Group>
-
-                      <Form.Group className="mb-3" controlId="formText3">
-                          <Form.Control type="address" placeholder="City/State" sm />
-                      </Form.Group>
-
-                      <Form.Group className="mb-3" controlId="formBasicEmail">
-                          <Form.Control type="email" placeholder="Email Address" sm />
-                      </Form.Group>
-
-                      <Form.Group className="mb-3" controlId="formBasicPassword">
-                          <Form.Control type="password" placeholder="Password" sm />
-                      </Form.Group>
-
-                      <Form.Group className="mb-3" controlId="formBasicPassword2">
-                          <Form.Control type="password" placeholder="Re-enter Password" sm />
-                      </Form.Group>
-                      <Button variant="btn btn-primary" type="submit">
-                          Submit
-                      </Button>
-                  </Form>
+                    <SignupForm/>
               </Card>
           </Card>
       </CardGroup>
