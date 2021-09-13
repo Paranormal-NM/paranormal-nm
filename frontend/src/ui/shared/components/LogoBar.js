@@ -10,11 +10,10 @@ export const LogoBar = () => {
             <Container>
                 <Row className="logoBar">
                     <Col md={5}>
-                        <Image fluid="lg" src={logo}/>
+                        <a href="/"><Image fluid="lg" src={logo}/></a>
                     </Col>
                     <Col md={7}>
-                            <button type="button" class="buttonStory">SUBMIT YOUR STORY!</button>
-                        <a class="login" href={"#"}>Log In / Sign Up</a>
+                        <button type="button" className="buttonStory">SUBMIT YOUR STORY!</button><button type="button" className="buttonLogin">Log In / Sign Up</button>
                     </Col>
                 </Row>
                 <Row>
@@ -28,15 +27,15 @@ export const LogoBar = () => {
                                     <Nav.Link className="navNear" href="#near-death">NEAR DEATH EXPERIENCES</Nav.Link>
                                     <Nav.Link className="navPara" href="#paranormal">PARANORMAL EVENTS</Nav.Link>
                                 </Nav>
-                                <Form className="d-flex" size="sm">
-                                    <FormControl size="sm"
-                                        type="search"
-                                        placeholder="Search"
-                                        className="ml-1"
-                                        aria-label="Search"
-                                    />
-                                    <Button><Image src={icon}/></Button>
-                                </Form>
+                                {/*<Form className="d-flex" size="sm">*/}
+                                {/*    <FormControl size="sm"*/}
+                                {/*        type="search"*/}
+                                {/*        placeholder="Search"*/}
+                                {/*        className="ml-1"*/}
+                                {/*        aria-label="Search"*/}
+                                {/*    />*/}
+                                {/*    <Button><Image src={icon}/></Button>*/}
+                                {/*</Form>*/}
                             </Navbar.Collapse>
                         </Container>
                     </Navbar>

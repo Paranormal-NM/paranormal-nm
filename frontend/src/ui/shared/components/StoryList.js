@@ -9,13 +9,13 @@ export const StoryList = () => {
     const dispatch = useDispatch();
     const effects = () => {
         dispatch(fetchAllStoriesAndProfiles());
-        dispatch(fetchStoryByStoryId())
+        // dispatch(fetchStoryByStoryId())
     };
 
 
     useEffect(effects, [dispatch]);
 
-    console.log(stories)
+
 
     return (
         <>
