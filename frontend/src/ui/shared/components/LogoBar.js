@@ -13,7 +13,7 @@ export const LogoBar = () => {
                         <a href="/"><Image fluid="lg" src={logo}/></a>
                     </Col>
                     <Col md={7}>
-                        <button type="button" className="buttonStory">SUBMIT YOUR STORY!</button><button type="button" className="buttonLogin">Log In / Sign Up</button>
+                        <button type="button" className="buttonStory">SUBMIT YOUR STORY!</button><button type="button" url="/login" className="buttonLogin">Log In / Sign Up</button>
                     </Col>
                 </Row>
                 <Row>
