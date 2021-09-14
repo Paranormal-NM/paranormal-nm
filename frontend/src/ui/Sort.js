@@ -7,7 +7,7 @@ export function Sort() {
         <>
                 <Container size={"lg"}>
                     <div className="barGhost">
-                        <span>GHOST STORIES</span> &nbsp; <span className="sortWhite">sort by: DATE | RATING</span>
+                        <span>GHOST STORIES</span>
                     </div>
                 </Container>
         </>

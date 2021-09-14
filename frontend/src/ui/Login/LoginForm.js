@@ -4,12 +4,16 @@ import * as Yup from "yup"
 import {httpConfig} from "../shared/utils/http-config";
 import {Formik} from "formik"
 import {LoginFormContent} from "./LoginFormContent";
+import jwt_Decode from "jwt-decode";
+import {getAuth} from "../../store/auth";
+import {useDispatch} from "react-redux";
 
 export function LoginForm() {
 const initialValues = {
     profileEmail: "" ,
     profilePassword: ""
 }
+const dispatch=useDispatch()
 const validator = Yup.object().shape({
     profileEmail: Yup.string().required("Please provide an email").email("Please provide a valid email."),
     profilePassword: Yup.string().required("Please provide a password.")
@@ -20,11 +24,13 @@ const validator = Yup.object().shape({
         .then(reply => {
             let {message, type} = reply
             if (reply.status === 200) {
-                console.log("success!")
+                window.localStorage.removeItem("authorization")
+                window.localStorage.setItem("authorization",reply.headers["authorization"])
+                resetForm()
+                let jwtToken=jwt_Decode(reply.headers["authorization"])
+                dispatch(getAuth(jwtToken))
             }
-
-                console.log(reply)
-
+            setStatus({message, type})
         })
     }
 

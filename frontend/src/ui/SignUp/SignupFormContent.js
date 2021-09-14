@@ -23,9 +23,9 @@ return ( <Form onSubmit={handleSubmit}>
                       onBlur={handleBlur}
         />
         {
-            errors.profileUserName && touched.profileUserName && (
+            errors.profileUsername && touched.profileUsername && (
                 <div className="alert alert-danger">
-                    {errors.profileUserName}
+                    {errors.profileUsername}
                 </div>
             )
 

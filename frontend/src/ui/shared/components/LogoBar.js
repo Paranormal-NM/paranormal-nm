@@ -3,6 +3,7 @@ import {Col, Container, Navbar, Nav, Row, Image, Form, FormControl, Button, List
 import logo from "../../images/paranormal-nm-logo.png"
 import icon from "../../images/magGlass.png"
 import ghost from "../../images/ghostIcon.png"
+import {Link} from "react-router-dom";
 
 export const LogoBar = () => {
     return (
@@ -13,7 +14,7 @@ export const LogoBar = () => {
                         <a href="/"><Image fluid="lg" src={logo}/></a>
                     </Col>
                     <Col md={7}>
-                        <button type="button" className="buttonStory">SUBMIT YOUR STORY!</button><button type="button" url="/login" className="buttonLogin">Log In / Sign Up</button>
+                        <button type="button" className="buttonStory">SUBMIT YOUR STORY!</button><button type="button" className="buttonLogin"><Link to={"/login"}>Log In / Sign Up</Link></button>
                     </Col>
                 </Row>
                 <Row>
