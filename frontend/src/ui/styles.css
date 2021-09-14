@@ -164,6 +164,11 @@ body {
     margin:1px;
 }
 
+.container:{id:contentBody} {
+    background: none;
+    border:0px;
+}
+
 
 
 

@@ -16,14 +16,14 @@ export function Signup(){
             <InputGroup className="mb-3">
                 <FormControl
                     placeholder="Firstname"
-                    aria-label="Firstname"git status
+                    aria-label="Firstname"
                     aria-describedby="first-name">
                 </FormControl>
                 <FormControl
                     placeholder="Lastname"
                     aria-label="Lastname"
                     aria-describedby="last-name">
-                </FormControl>git ull
+                </FormControl>
                 <Form.label>Enter email</Form.label>
                 <Form.Control type="email" placeholder="Enter email" />
 
