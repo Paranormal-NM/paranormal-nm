@@ -4,8 +4,20 @@ import logo from "../../images/paranormal-nm-logo.png"
 import icon from "../../images/magGlass.png"
 import ghost from "../../images/ghostIcon.png"
 import {Link} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchAllCategories} from "../../../store/categories";
 
 export const LogoBar = () => {
+    const dispatch = useDispatch()
+    const initialEffects = () => {
+        dispatch (fetchAllCategories())
+
+    }
+
+    React.useEffect(initialEffects, [dispatch])
+
+    const categories = useSelector(state=> state.categories ?? [])
+
     return (
         <>
             <Container>
@@ -26,11 +38,15 @@ export const LogoBar = () => {
                             <Navbar.Toggle aria-controls="navbarScroll" />
                             <Navbar.Collapse id="navbarScroll">
                                 <Nav className="ms-auto">
-                                    <Nav.Link className="navGhost" href="#ghosts">GHOST STORIES</Nav.Link>
-                                    <Nav.Link className="navPlaces" href="#places">HAUNTED PLACES</Nav.Link>
-                                    <Nav.Link className="navNear" href="#near-death">NEAR DEATH EXPERIENCES</Nav.Link>
-                                    <Nav.Link className="navPara" href="#paranormal">PARANORMAL EVENTS</Nav.Link>
+                                {categories.map(category =>(
+                                    <Nav.Link className="navGhost" href="#ghosts">{category.categoryName.toUpperCase()}</Nav.Link>
+                                ))}
+                                {/*    <Nav.Link className="navGhost" href="#ghosts">GHOST STORIES</Nav.Link>*/}
+                                {/*    <Nav.Link className="navPlaces" href="#places">HAUNTED PLACES</Nav.Link>*/}
+                                {/*    <Nav.Link className="navNear" href="#near-death">NEAR DEATH EXPERIENCES</Nav.Link>*/}
+                                {/*    <Nav.Link className="navPara" href="#paranormal">PARANORMAL EVENTS</Nav.Link>*/}
                                 </Nav>
+
                                 {/*<Form className="d-flex" size="sm">*/}
                                 {/*    <FormControl size="sm"*/}
                                 {/*        type="search"*/}

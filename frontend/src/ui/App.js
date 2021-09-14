@@ -8,6 +8,7 @@ import { FourOhFour } from './FourOhFour'
 import React from 'react'
 import { Login } from "./Login/Login"
 import { Provider } from "react-redux";
+import {StoryCategory} from "./StoryCategory";
 
 export const App = (store) => (
     <>
@@ -17,7 +18,7 @@ export const App = (store) => (
                 <Switch>
                     <Route exact path={'/login'} component={Login} />
                     <Route exact path={'/profile'} component={Profile} />
-
+                        <Route exact path ={'/story-category/:name'} name={":name"} component={StoryCategory}/>
                     <Route exact path={'/story/:storyId'} storyId={":storyId"} component={Story}/>
                     <Route exact path='/' component={Home} />
                     <Route component={FourOhFour} />
