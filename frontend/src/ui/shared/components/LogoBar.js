@@ -14,7 +14,10 @@ export const LogoBar = () => {
                         <a href="/"><Image fluid="lg" src={logo}/></a>
                     </Col>
                     <Col md={7}>
-                        <button type="button" className="buttonStory"><Link to={"/profile"}>SUBMIT YOUR STORY!</Link></button><button type="button" className="buttonLogin"><Link to={"/login"}>Log In / Sign Up</Link></button>
+
+                        <Link to={"/profile"}> <button type="button" className="buttonStory">SUBMIT YOUR STORY!</button></Link>
+                        <Link to={"/login"}><button type="button" className="buttonLogin">Log In / Sign Up</button></Link>
+
                     </Col>
                 </Row>
                 <Row>

@@ -10,7 +10,9 @@ import {Formik} from "formik";
 
 export function CreateStory() {
     const categories = useSelector(state => state.categories ? state.categories : []);
+    const auth = useSelector(state => state.auth ? state.auth : null);
     const initialValues = {
+        storyProfileId: auth?.profileId,
         storyCategoryId: "",
         storyTitle: "",
         storyCity: "",
@@ -19,6 +21,7 @@ export function CreateStory() {
     }
 
     const validation = Yup.object().shape({
+        storyCategoryId: Yup.string().required("Please select a category."),
         storyTitle: Yup.string().required("Please provide Story Title").max(45,"Title can not exceed 45 characters"),
         storyCity: Yup.string().required("Please provide City").max(45,"City Name can not exceed 45 characters"),
         storyState: Yup.string().required("Please provide State").max(45,"Use 2-character state abbreviation"),
@@ -57,22 +60,35 @@ export function CreateStory() {
                         handleChange,
                         handleBlur,
                         handleSubmit,
-                        handleReset
+                        handleReset,
+                        setFieldValue
                      } = props;
 
 
                     return(<Form onSubmit={handleSubmit}>
 
-                        <Form.Group>
-                            <Dropdown>
-                                <Dropdown.Toggle variant="success" id="dropdown-basic">
-                                    Select Category:
-                                </Dropdown.Toggle>
+                        <Form.Group controlId="storyCategoryId">
+                            <Form.Control
+                                as="select"
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                >  <option value="">--Please choose a Category--</option>
+                                {categories.map(category => (
+                                    <option value={category.categoryId}
+                                    key={category.categoryId}
+                                    >
+                                        {category.categoryName}
+                                    </option>))}
+                            </Form.Control>
 
-                                <Dropdown.Menu>
-                                    {categories.map(category => (<Dropdown.Item key={category.categoryId}>{category.categoryName}</Dropdown.Item>))}
-                                </Dropdown.Menu>
-                            </Dropdown>
+                            {
+                                errors.storyCategoryId && touched.storyCategoryId && (
+                                    <div className="alert alert-danger">
+                                        {errors.storyCategoryId}
+                                    </div>
+                                )
+
+                            }
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="profileUsername">
