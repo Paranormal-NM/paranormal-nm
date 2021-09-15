@@ -12,6 +12,9 @@ const slice = createSlice({
         },
         getStoryByStoryId: (story, action) => {
             return action.payload
+        },
+        getStoryByStoryCategoryId: (story, action) => {
+            return action.payload
         }
     }
 })
@@ -20,7 +23,7 @@ const slice = createSlice({
 
 
 export const {getAllStories} = slice.actions
-export const {getStoryByStoryId} = slice.actions
+export const {getStoryByStoryId, getStoryByStoryCategoryId} = slice.actions
 
 export const fetchAllStories = () => async (dispatch) => {
     const {data} =  await httpConfig.get("/apis/story/");
@@ -32,6 +35,14 @@ export const fetchStoryByStoryId = (id) => async (dispatch, getState) => {
     console.log (state)
     const {data} = await httpConfig.get(`/apis/story/${id}`)
     dispatch(getStoryByStoryId(data))
+
+}
+
+export const fetchStoryByStoryCategoryId = (id) => async (dispatch, getState) => {
+    const state = getState()
+    console.log (state)
+    const {data} = await httpConfig.get(`/apis/story/storyCategoryId/${id}`)
+    dispatch(getStoryByStoryCategoryId(data))
 
 }
 

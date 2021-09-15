@@ -6,7 +6,7 @@ import ghost from "../../images/ghostIcon.png"
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAllCategories} from "../../../store/categories";
-
+import {useHistory} from 'react-router-dom'
 export const LogoBar = () => {
     const dispatch = useDispatch()
     const initialEffects = () => {
@@ -17,7 +17,7 @@ export const LogoBar = () => {
     React.useEffect(initialEffects, [dispatch])
 
     const categories = useSelector(state=> state.categories ?? [])
-
+    const history = useHistory()
     return (
         <>
             <Container>
@@ -39,7 +39,9 @@ export const LogoBar = () => {
                             <Navbar.Collapse id="navbarScroll">
                                 <Nav className="ms-auto">
                                 {categories.map(category =>(
-                                    <Nav.Link className="navGhost" href="#ghosts">{category.categoryName.toUpperCase()}</Nav.Link>
+                                    <Nav.Link
+                                        key={category.categoryId}
+                                        className="navGhost" onClick={() => {history.push(`/story-category/${category.categoryId}`)}}>{category.categoryName.toUpperCase()}</Nav.Link>
                                 ))}
                                 {/*    <Nav.Link className="navGhost" href="#ghosts">GHOST STORIES</Nav.Link>*/}
                                 {/*    <Nav.Link className="navPlaces" href="#places">HAUNTED PLACES</Nav.Link>*/}
