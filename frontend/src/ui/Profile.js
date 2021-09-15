@@ -1,5 +1,4 @@
 import React from "react"
-import {Sort} from "./Sort"
 import {StoryList} from './shared/components/StoryList'
 import {CommentWrapper} from "./CommentWrapper"
 import {Col, Container, Row, Card, Form, ListGroup, Button, ButtonGroup, Accordion} from "react-bootstrap";

@@ -2,7 +2,6 @@
 import React, {useEffect} from "react"
 import {useDispatch, useSelector} from "react-redux";
 import {StoryList} from './shared/components/StoryList'
-import {Sort} from './Sort'
 import {StoryListCard, FindUserName} from './shared/StoryListCard'
 import {fetchStoryByStoryId} from '../store/stories'
 import {Col, Container, Navbar, Nav, Row, Image, Form, FormControl, Button, ListGroup} from "react-bootstrap";
@@ -39,8 +38,10 @@ console.log(story)
 
     return (
         <>
-            <Sort/>
             <Container d-flex size={"lg"} itemID={"contentBody"}>
+            <div className="barGhost">
+                <span>GHOST STORIES</span>
+            </div>
 
                     <ListGroup.Item action variant="light" >
                         <span className={"storyTitle"}>{story.storyTitle}</span>

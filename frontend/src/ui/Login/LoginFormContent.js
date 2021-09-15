@@ -25,6 +25,6 @@ export const LoginFormContent=(props) =>{
         <Button variant="btn btn-primary" type="submit">
             Submit
         </Button>
-            <FormDebugger {...props}/>
+            {/*<FormDebugger {...props}/>*/}
     </Form>)
 }

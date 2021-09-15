@@ -132,10 +132,11 @@ body {
 }
 
 .storyTitle {
-    font-size: 23px;
-    font-weight: bold;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 29px;
+    font-weight:700;
     color: maroon;
-    margin-right:27px;
+    margin-right:11px;
 }
 
 .details {
@@ -167,6 +168,18 @@ body {
 /*story input page*/
 
 .storyInput-bg {
+    background: rgba(255, 255, 255, 0.40);
+    border: 0;
+    border-radius:5px;
+    padding:15px;
+    margin:2px;
+}
+
+.storyList {
+    display:inline-block;
+}
+
+#contentBody {
     background: rgba(255, 255, 255, 0.40);
     border: 0;
     border-radius:5px;

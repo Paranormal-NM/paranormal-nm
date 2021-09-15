@@ -23,6 +23,7 @@ export const StoryList = () => {
         <>
 
             <Container d-flex size={"lg"} itemID={"contentBody"}>
+
                 <ListGroup>
                     {stories.map(story => <StoryListCard  key={story.storyId} story={story}/>)}
                 </ListGroup>

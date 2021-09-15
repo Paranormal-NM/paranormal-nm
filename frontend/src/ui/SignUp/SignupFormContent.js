@@ -120,7 +120,7 @@ return ( <Form onSubmit={handleSubmit}>
     <Button variant="btn btn-primary" type="submit">
         Submit
     </Button>
-    <FormDebugger {...props} />
+    {/*<FormDebugger {...props} />*/}
     {
         status && (<div className={status.type}>{status.message}</div>)
     }

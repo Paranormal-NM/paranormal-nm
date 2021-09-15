@@ -10,7 +10,7 @@ export const StoryListCard = ({story}) => {
         const profile = profiles.find(profile => story.storyProfileId === profile.profileId)
         return (
             <>
-                {profile && <p>{profile.profileUsername} </p>}
+                {profile && <span>{profile.profileUsername} </span>}
             </>
 
         )
@@ -34,11 +34,12 @@ export const StoryListCard = ({story}) => {
 
     return (
         <>
-            <ListGroup.Item action onClick={handleClick} variant="light" ><span className={"storyTitle"}>{story.storyTitle}</span>
-                <span className="details">
-                <FindUserName/>
-                <StoryTeaser story={story.storyBody}/>
-                </span></ListGroup.Item>
+            <ListGroup.Item action onClick={handleClick} variant="light">
+                <div className={"storyList"}>
+                    <span className={"storyTitle"}>{story.storyTitle}</span>
+                    <span className={"details"}>by <FindUserName/></span>
+                </div>
+            </ListGroup.Item>
         </>
     )
 }

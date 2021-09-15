@@ -1,13 +1,17 @@
 import React from "react"
 import {StoryList} from './shared/components/StoryList'
-import {Sort} from './Sort'
+import {Container} from "react-bootstrap";
 export const Home = () => {
 
 
 
     return (
         <>
-            <Sort/>
+            <Container d-flex size={"lg"}>
+            <div className="barGhost">
+                <span>ALL STORIES</span>
+            </div>
+        </Container>
             <StoryList/>
         </>
     )
