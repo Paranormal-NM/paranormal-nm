@@ -71,6 +71,8 @@ console.log(auth)
 
                     return(<Form onSubmit={handleSubmit}>
 
+                        <div className={"storyInput-bg"} lg={12}>
+
                         <Form.Group controlId="storyCategoryId">
                             <Form.Control
                                 as="select"
@@ -144,9 +146,10 @@ console.log(auth)
                             }
                         </Form.Group>
 
+
                         <Form.Group className="mb-3" controlId="storyBody">
                             <Form.Label>Story:</Form.Label>
-                            <Form.Control style={{minHeight: '150px'}} as="textarea" placeholder="Enter story here..." sm
+                            <Form.Control style={{minHeight: '150px'}} as="textarea" placeholder="Tell us your story..." sm
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                             />
@@ -170,10 +173,12 @@ console.log(auth)
                             status && (<div className={status.type}>{status.message}</div>)
                         }
 
+                        </div>
                     </Form>)
                 }}
 
             </Formik>
+
         </>
 
     )
