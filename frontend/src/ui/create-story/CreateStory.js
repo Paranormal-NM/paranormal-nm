@@ -74,7 +74,7 @@ console.log(auth)
                         <div className={"storyInput-bg"} lg={12}>
 
                         <Form.Group controlId="storyCategoryId">
-                            <Form.Control
+                            <Form.Control>
                                 as="select"
                                 onChange={handleChange}
                                 onBlur={handleBlur}
