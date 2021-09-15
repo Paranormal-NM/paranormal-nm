@@ -7,17 +7,36 @@ import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAllCategories} from "../../../store/categories";
 import {useHistory} from 'react-router-dom'
+import {httpConfig} from "../utils/http-config";
+import {fetchAuth, getAuth} from "../../../store/auth";
 export const LogoBar = () => {
+
+    const auth = useSelector(state => state.auth);
     const dispatch = useDispatch()
     const initialEffects = () => {
         dispatch (fetchAllCategories())
-
+        dispatch(fetchAuth());
     }
 
     React.useEffect(initialEffects, [dispatch])
 
     const categories = useSelector(state=> state.categories ?? [])
+
+    const signOut = () => {
+        httpConfig.get('/apis/sign-out/').then(reply => {
+
+            if (reply.status === 200) {
+                window.localStorage.removeItem('authorization')
+                dispatch(getAuth(null))
+                window.location = '/'
+
+            }
+        })
+    }
+
+
     const history = useHistory()
+    console.log(auth)
     return (
         <>
             <Container>
@@ -28,7 +47,12 @@ export const LogoBar = () => {
                     <Col md={7}>
 
                         <Link to={"/profile"}> <button type="button" className="buttonStory">SUBMIT YOUR STORY!</button></Link>
+                        {auth == null ?
                         <Link to={"/login"}><button type="button" className="buttonLogin">Log In / Sign Up</button></Link>
+                        :
+                            <button type="button" className="buttonLogin" onClick={signOut}>Sign Out</button>
+                        }
+
 
                     </Col>
                 </Row>

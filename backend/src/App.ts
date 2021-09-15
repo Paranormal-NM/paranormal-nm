@@ -11,6 +11,7 @@ import commentRoute from './apis/comment/comment.route';
 import passport from "passport";
 import {passportStrategy} from "./apis/sign-in/sign-in.controller";
 import {profileRoute} from "./apis/profile/profileRoute";
+import {SignOutRoute} from "./apis/sign-out/sign-out.route";
 const session = require("express-session");
 const MemoryStore = require('memorystore')(session);
 // The following class creates the app and instantiates the server
@@ -61,6 +62,7 @@ export class App {
         this.app.use('/apis/category/', categoryRoute)
         this.app.use('/apis/comment/', commentRoute)
         this.app.use('/apis/profile/', profileRoute)
+        this.app.use('/apis/sign-out/', SignOutRoute)
     }
 
     // starts the server and tells the terminal to post a message that the server is running and on what port
