@@ -14,6 +14,7 @@ import {profileRoute} from "./apis/profile/profileRoute";
 import {SignOutRoute} from "./apis/sign-out/sign-out.route";
 const session = require("express-session");
 const MemoryStore = require('memorystore')(session);
+import helmet from "helmet"
 // The following class creates the app and instantiates the server
 export class App {
     app: Application;
@@ -45,7 +46,7 @@ export class App {
         };
         this.app.use(morgan('dev'))
         this.app.use(express.json())
-
+        this.app.use(helmet())
         this.app.use(session(sessionConfig));
         this.app.use(passport.initialize());
         this.app.use(passport.session());
